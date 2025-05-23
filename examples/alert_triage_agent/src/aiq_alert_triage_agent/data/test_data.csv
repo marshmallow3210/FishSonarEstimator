@@ -1,0 +1,249 @@
+id,alert,host_id,network_connectivity_check_tool:ping_output,network_connectivity_check_tool:telnet_output,monitor_process_check_tool:ps_output,monitor_process_check_tool:systemctl_output,hardware_check_tool:ipmi_output,telemetry_metrics_host_heartbeat_check_tool:heartbeat_check_output,label
+0,"{ ""alert_id"": 0, ""alert_name"": ""InstanceDown"", ""host_id"": ""test-instance-0.example.com"", ""severity"": ""critical"", ""description"": ""Instance test-instance-0.example.com is not available for scrapping for the last 5m. Please check: - instance is up and running; - monitoring service is in place and running; - network connectivity is ok"", ""summary"": ""Instance test-instance-0.example.com is down"", ""timestamp"": ""2025-04-28T05:00:00.000000"" }",test-instance-0.example.com,"PING 192.0.2.1 (192.0.2.1) 56(84) bytes of data.
+
+  64 bytes from 192.0.2.1: icmp_seq=1 ttl=64 time=12.3 ms
+
+  64 bytes from 192.0.2.1: icmp_seq=2 ttl=64 time=11.8 ms
+
+  64 bytes from 192.0.2.1: icmp_seq=3 ttl=64 time=12.1 ms
+
+
+
+  --- 192.0.2.1 ping statistics ---
+
+  3 packets transmitted, 3 received, 0% packet loss, time 2001ms
+
+  rtt min/avg/max/mdev = 11.8/12.0/12.3/0.2 ms","Trying 192.0.2.1...
+
+  Connected to 192.0.2.1.
+
+  Escape character is '^]'.
+
+  SSH-2.0-OpenSSH_99.99p99 TestOS-9.9","telegraf 1234 1 0 10:00 ? 00:00:02 /usr/bin/telegraf --config /etc/telegraf/telegraf.conf
+
+  user 5678 4321 0 10:05 pts/0 00:00:00 grep --color=auto telegraf","telegraf.service - The plugin-driven server agent for reporting metrics into InfluxDB
+
+  Loaded: loaded (/lib/systemd/system/telegraf.service; enabled; vendor preset: enabled)
+
+  Active: active (running) since Thu 2025-02-21 10:00:01 UTC; 5min ago
+
+  Main PID: 1234 (telegraf)
+
+  Tasks: 10 (limit: 4915)
+
+  Memory: 25.1M
+
+  CGroup: /system.slice/telegraf.service
+
+  ‚îî‚îÄ1234 /usr/bin/telegraf --config /etc/telegraf/telegraf.conf","ID,Name,Type,State,Reading,Units,Event
+  4,CPU Temp,Temperature,Nominal,52.00,C,'OK'
+  71,PCH Temp,Temperature,Nominal,54.00,C,'OK'
+  138,System Temp,Temperature,Nominal,38.00,C,'OK'
+  205,Peripheral Temp,Temperature,Nominal,49.00,C,'OK'
+  272,VcpuVRM Temp,Temperature,Nominal,48.00,C,'OK'
+  339,VmemABVRM Temp,Temperature,Nominal,46.00,C,'OK'
+  406,VmemCDVRM Temp,Temperature,Nominal,44.00,C,'OK'
+  473,P1-DIMMA1 Temp,Temperature,Nominal,46.00,C,'OK'
+  540,P1-DIMMB1 Temp,Temperature,Nominal,48.00,C,'OK'
+  741,FAN,Fan,Nominal,5200.00,RPM,'OK'
+  808,12V,Voltage,Nominal,11.81,V,'OK'
+  875,5VCC,Voltage,Nominal,5.00,V,'OK'
+  942,3.3VCC,Voltage,Nominal,3.30,V,'OK'
+  1009,VBAT,Voltage,Nominal,3.02,V,'OK'
+  1076,Vcpu,Voltage,Nominal,1.79,V,'OK'
+  1143,VDIMMAB,Voltage,Nominal,1.17,V,'OK'
+  1210,VDIMMCD,Voltage,Nominal,1.18,V,'OK'
+  1277,5VSB,Voltage,Nominal,4.97,V,'OK'
+  1344,3.3VSB,Voltage,Nominal,3.23,V,'OK'
+  1411,1.5V PCH,Voltage,Nominal,1.52,V,'OK'
+  1478,1.2V BMC,Voltage,Nominal,1.21,V,'OK'
+  1545,1.05V PCH,Voltage,Nominal,1.04,V,'OK'
+  1612,PS Status,Power Supply,Nominal,N/A,N/A,'Presence detected'","{'status': 'success', 'data': {'resultType': 'vector', 'result': [{'metric': {'__name__': 'up', 'instance': 'test-instance-0.example.com'}, 'value': [1740505200.14, '1']}]}}",false_positive
+1,"{ ""alert_id"": 1, ""alert_name"": ""InstanceDown"", ""host_id"": ""test-instance-1.example.com"", ""severity"": ""critical"", ""description"": ""Instance test-instance-1.example.com is not available for scrapping for the last 5m. Please check: - instance is up and running; - monitoring service is in place and running; - network connectivity is ok"", ""summary"": ""Instance test-instance-1.example.com is down"", ""timestamp"": ""2025-04-28T05:00:00.000000"" }",test-instance-1.example.com,"PING 10.137.66.34 (10.137.66.34) 56(84) bytes of data.
+
+  From 10.137.66.34 icmp_seq=1 Destination Host Unreachable
+
+  From 10.137.66.34 icmp_seq=2 Destination Host Unreachable
+
+  From 10.137.66.34 icmp_seq=3 Destination Host Unreachable
+
+  --- 10.137.66.34 ping statistics ---
+
+  3 packets transmitted, 0 received, +3 errors, 100% packet loss, time 2012ms","telnet 10.137.66.34 22
+
+  Trying 10.137.66.34...
+
+  telnet: Unable to connect to remote host: Connection timed out",SSH connection failed,SSH connection failed,"ID | Name | Type | Reading | Units | Event
+ 4 | CPU Temp | Temperature | 45.00 | C | 'OK'
+ 71 | Inlet Temp | Temperature | 26.00 | C | 'OK'
+ 138 | System Temp | Temperature | 24.00 | C | 'OK'
+ 205 | Peripheral Temp | Temperature | 29.00 | C | 'OK'
+ 272 | CPU_VRM0 Temp | Temperature | 29.00 | C | 'OK'
+ 339 | CPU_VRM1 Temp | Temperature | 39.00 | C | 'OK'
+ 406 | SOC_VRM Temp | Temperature | 33.00 | C | 'OK'
+ 473 | VDDIO_VRM Temp | Temperature | 36.00 | C | 'OK'
+ 540 | DIMMA~F Temp | Temperature | 31.00 | C | 'OK'
+ 607 | DIMMG~L Temp | Temperature | 31.00 | C | 'OK'
+ 674 | MB 12V | Voltage | 12.08 | V | 'OK'
+ 741 | MB 5VCC | Voltage | 5.18 | V | 'OK'
+ 808 | MB 3.3VCC | Voltage | 3.40 | V | 'OK'
+ 875 | VBAT | Battery | N/A | N/A | 'battery presence detected'
+ 942 | MB 5VSB | Voltage | 5.14 | V | 'OK'
+ 1009 | MB 3.3VSB | Voltage | 3.34 | V | 'OK'
+ 1076 | MB 1.8VSB | Voltage | 1.83 | V | 'OK'
+ 1143 | BMC 2.5V | Voltage | 2.51 | V | 'OK'
+ 1210 | BMC 1.8V | Voltage | 1.81 | V | 'OK'
+ 1277 | BMC 1.2V | Voltage | 1.21 | V | 'OK'
+ 1344 | BMC 1.0V | Voltage | 1.02 | V | 'OK'
+ 1411 | CPU_VDDCR0 | Voltage | 1.19 | V | 'OK'
+ 1478 | CPU_SOC | Voltage | 0.97 | V | 'OK'
+ 1545 | CPU_VDDCR1 | Voltage | 1.17 | V | 'OK'
+ 1612 | CPU_VDDIO | Voltage | 1.09 | V | 'OK'
+ 1679 | FAN1 | Fan | 18480.00 | RPM | 'OK'
+ 1746 | FAN2 | Fan | 18340.00 | RPM | 'OK'
+ 1813 | FAN3 | Fan | 18480.00 | RPM | 'OK'
+ 1880 | FAN4 | Fan | 18340.00 | RPM | 'OK'
+ 1947 | FAN5 | Fan | 18200.00 | RPM | 'OK'
+ 2014 | FAN6 | Fan | 18480.00 | RPM | 'OK'
+ 2081 | M2_SSD1 Temp | Temperature | 25.00 | C | 'OK'
+ 2148 | M2_SSD2 Temp | Temperature | 32.00 | C | 'OK'
+ 2215 | Chassis Intru | Physical Security | N/A | N/A | 'General Chassis Intrusion'
+ 2416 | PS1 Status | Power Supply | N/A | N/A | 'Presence detected' 'Power Supply Failure detected' 'Power Supply input lost (AC/DC)'
+ 2483 | PS2 Status | Power Supply | N/A | N/A | 'Presence detected' 'Power Supply Failure detected' 'Power Supply input lost (AC/DC)'
+ 2550 | NVMe_SSDA Temp | Temperature | 28.00 | C | 'OK'
+ 2617 | AIOM_NIC1 Temp | Temperature | 81.00 | C | 'OK'","{'status': 'success', 'data': {'resultType': 'vector', 'result': []}}",hardware
+2,"{ ""alert_id"": 2, ""alert_name"": ""InstanceDown"", ""host_id"": ""test-instance-2.example.com"", ""severity"": ""critical"", ""description"": ""Instance test-instance-2.example.com is not available for scrapping for the last 5m. Please check: - instance is up and running; - monitoring service is in place and running; - network connectivity is ok"", ""summary"": ""Instance test-instance-2.example.com is down"", ""timestamp"": ""2025-04-28T05:00:00.000000"" }",test-instance-2.example.com,"PING 192.0.2.1 (192.0.2.1) 56(84) bytes of data.
+
+  64 bytes from 192.0.2.1: icmp_seq=1 ttl=64 time=12.3 ms
+
+  64 bytes from 192.0.2.1: icmp_seq=2 ttl=64 time=11.8 ms
+
+  64 bytes from 192.0.2.1: icmp_seq=3 ttl=64 time=12.1 ms
+
+
+
+  --- 192.0.2.1 ping statistics ---
+
+  3 packets transmitted, 3 received, 0% packet loss, time 2001ms
+
+  rtt min/avg/max/mdev = 11.8/12.0/12.3/0.2 ms","Trying 192.0.2.1...
+
+  Connected to 192.0.2.1.
+
+  Escape character is '^]'.
+
+  SSH-2.0-OpenSSH_99.99p99 TestOS-9.9","ps -ef | grep telegraf
+
+  user 5678 4321 0 10:05 pts/0 00:00:00 grep --color=auto telegraf","telegraf.service - The plugin-driven server agent for reporting metrics into InfluxDB
+
+  Loaded: loaded (/lib/systemd/system/telegraf.service; enabled; vendor preset: enabled)
+
+  Active: inactive (dead) since Thu 2025-02-21 10:00:01 UTC; 5min ago
+
+  Main PID: 1234 (telegraf)
+
+  Tasks: 10 (limit: 4915)
+
+  Memory: 25.1M
+
+  CGroup: /system.slice/telegraf.service
+
+  ‚îî‚îÄ1234 /usr/bin/telegraf --config /etc/telegraf/telegraf.conf","ID,Name,Type,State,Reading,Units,Event
+  4,CPU Temp,Temperature,Nominal,52.00,C,'OK'
+  71,PCH Temp,Temperature,Nominal,54.00,C,'OK'
+  138,System Temp,Temperature,Nominal,38.00,C,'OK'
+  205,Peripheral Temp,Temperature,Nominal,49.00,C,'OK'
+  272,VcpuVRM Temp,Temperature,Nominal,48.00,C,'OK'
+  339,VmemABVRM Temp,Temperature,Nominal,46.00,C,'OK'
+  406,VmemCDVRM Temp,Temperature,Nominal,44.00,C,'OK'
+  473,P1-DIMMA1 Temp,Temperature,Nominal,46.00,C,'OK'
+  540,P1-DIMMB1 Temp,Temperature,Nominal,48.00,C,'OK'
+  741,FAN,Fan,Nominal,5200.00,RPM,'OK'
+  808,12V,Voltage,Nominal,11.81,V,'OK'
+  875,5VCC,Voltage,Nominal,5.00,V,'OK'
+  942,3.3VCC,Voltage,Nominal,3.30,V,'OK'
+  1009,VBAT,Voltage,Nominal,3.02,V,'OK'
+  1076,Vcpu,Voltage,Nominal,1.79,V,'OK'
+  1143,VDIMMAB,Voltage,Nominal,1.17,V,'OK'
+  1210,VDIMMCD,Voltage,Nominal,1.18,V,'OK'
+  1277,5VSB,Voltage,Nominal,4.97,V,'OK'
+  1344,3.3VSB,Voltage,Nominal,3.23,V,'OK'
+  1411,1.5V PCH,Voltage,Nominal,1.52,V,'OK'
+  1478,1.2V BMC,Voltage,Nominal,1.21,V,'OK'
+  1545,1.05V PCH,Voltage,Nominal,1.04,V,'OK'
+  1612,PS Status,Power Supply,Nominal,N/A,N/A,'Presence detected'","{'status': 'success', 'data': {'resultType': 'vector', 'result': []}}",software
+3,"{ ""alert_id"": 3, ""alert_name"": ""InstanceDown"", ""host_id"": ""test-instance-3.example.com"", ""severity"": ""critical"", ""description"": ""Instance test-instance-3.example.com is not available for scrapping for the last 5m. Please check: - instance is up and running; - monitoring service is in place and running; - network connectivity is ok"", ""summary"": ""Instance test-instance-3.example.com is down"", ""timestamp"": ""2025-04-30T05:00:00.000000"" }",test-instance-3.example.com,"PING 192.0.2.1 (192.0.2.1) 56(84) bytes of data.
+
+  64 bytes from 192.0.2.1: icmp_seq=1 ttl=64 time=12.3 ms
+
+  64 bytes from 192.0.2.1: icmp_seq=2 ttl=64 time=11.8 ms
+
+  64 bytes from 192.0.2.1: icmp_seq=3 ttl=64 time=12.1 ms
+
+
+
+  --- 192.0.2.1 ping statistics ---
+
+  3 packets transmitted, 3 received, 0% packet loss, time 2001ms
+
+  rtt min/avg/max/mdev = 11.8/12.0/12.3/0.2 ms","Trying 192.0.2.1...
+
+  Connected to 192.0.2.1.
+
+  Escape character is '^]'.
+
+  SSH-2.0-OpenSSH_99.99p99 TestOS-9.9","telegraf 1234 1 0 10:00 ? 00:00:02 /usr/bin/telegraf --config /etc/telegraf/telegraf.conf
+
+  user 5678 4321 0 10:05 pts/0 00:00:00 grep --color=auto telegraf","telegraf.service - The plugin-driven server agent for reporting metrics into InfluxDB
+
+  Loaded: loaded (/lib/systemd/system/telegraf.service; enabled; vendor preset: enabled)
+
+  Active: active (running) since Thu 2025-02-21 10:00:01 UTC; 5min ago
+
+  Main PID: 1234 (telegraf)
+
+  Tasks: 10 (limit: 4915)
+
+  Memory: 25.1M
+
+  CGroup: /system.slice/telegraf.service
+
+  ‚îî‚îÄ1234 /usr/bin/telegraf --config /etc/telegraf/telegraf.conf","ID | Name | Type | Reading | Units | Event
+ 4 | CPU Temp | Temperature | 45.00 | C | 'OK'
+ 71 | Inlet Temp | Temperature | 26.00 | C | 'OK'
+ 138 | System Temp | Temperature | 24.00 | C | 'OK'
+ 205 | Peripheral Temp | Temperature | 29.00 | C | 'OK'
+ 272 | CPU_VRM0 Temp | Temperature | 29.00 | C | 'OK'
+ 339 | CPU_VRM1 Temp | Temperature | 39.00 | C | 'OK'
+ 406 | SOC_VRM Temp | Temperature | 33.00 | C | 'OK'
+ 473 | VDDIO_VRM Temp | Temperature | 36.00 | C | 'OK'
+ 540 | DIMMA~F Temp | Temperature | 31.00 | C | 'OK'
+ 607 | DIMMG~L Temp | Temperature | 31.00 | C | 'OK'
+ 674 | MB 12V | Voltage | 12.08 | V | 'OK'
+ 741 | MB 5VCC | Voltage | 5.18 | V | 'OK'
+ 808 | MB 3.3VCC | Voltage | 3.40 | V | 'OK'
+ 875 | VBAT | Battery | N/A | N/A | 'battery presence detected'
+ 942 | MB 5VSB | Voltage | 5.14 | V | 'OK'
+ 1009 | MB 3.3VSB | Voltage | 3.34 | V | 'OK'
+ 1076 | MB 1.8VSB | Voltage | 1.83 | V | 'OK'
+ 1143 | BMC 2.5V | Voltage | 2.51 | V | 'OK'
+ 1210 | BMC 1.8V | Voltage | 1.81 | V | 'OK'
+ 1277 | BMC 1.2V | Voltage | 1.21 | V | 'OK'
+ 1344 | BMC 1.0V | Voltage | 1.02 | V | 'OK'
+ 1411 | CPU_VDDCR0 | Voltage | 1.19 | V | 'OK'
+ 1478 | CPU_SOC | Voltage | 0.97 | V | 'OK'
+ 1545 | CPU_VDDCR1 | Voltage | 1.17 | V | 'OK'
+ 1612 | CPU_VDDIO | Voltage | 1.09 | V | 'OK'
+ 1679 | FAN1 | Fan | 18480.00 | RPM | 'OK'
+ 1746 | FAN2 | Fan | 18340.00 | RPM | 'OK'
+ 1813 | FAN3 | Fan | 18480.00 | RPM | 'OK'
+ 1880 | FAN4 | Fan | 18340.00 | RPM | 'OK'
+ 1947 | FAN5 | Fan | 18200.00 | RPM | 'OK'
+ 2014 | FAN6 | Fan | 18480.00 | RPM | 'OK'
+ 2081 | M2_SSD1 Temp | Temperature | 25.00 | C | 'OK'
+ 2148 | M2_SSD2 Temp | Temperature | 32.00 | C | 'OK'
+ 2215 | Chassis Intru | Physical Security | N/A | N/A | 'General Chassis Intrusion'
+ 2416 | PS1 Status | Power Supply | N/A | N/A | 'Presence detected'
+ 2483 | PS2 Status | Power Supply | N/A | N/A | 'Presence detected' 'Power Supply Failure detected' 'Power Supply input lost (AC/DC)'
+ 2550 | NVMe_SSDA Temp | Temperature | 28.00 | C | 'OK'
+ 2617 | AIOM_NIC1 Temp | Temperature | 81.00 | C | 'OK'","{'status': 'success', 'data': {'resultType': 'vector', 'result': [{'metric': {'__name__': 'up', 'instance': 'test-instance-1.example.com'}, 'value': [1740505200.14, '1']}]}}",maintenance
