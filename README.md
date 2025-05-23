@@ -50,7 +50,7 @@ Edit paths and your NVIDIA API key in `examples/estimator/src/estimator/configs/
 ## Running the Project
 1. Start the inference API
 ```bash
-cd examples/estimator/src/estimator
+cd examples/estimator/
 python app.py
 ```
 
