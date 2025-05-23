@@ -1,0 +1,18 @@
+functions:
+  estimator_tool:
+    _type: estimator/estimator 
+    image_path: examples/estimator/src/estimator/img/201.png
+    description: "估算魚隻數量"
+
+llms:
+  nim_llm:
+    _type: nim
+    model_name: meta/llama-3.1-70b-instruct
+    api_key: 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
+
+workflow:
+  _type: aiq.agent.tool_calling_agent/tool_calling_agent
+  llm_name: nim_llm
+  tool_names: [estimator_tool]
+  return_direct: true
+  verbose: true

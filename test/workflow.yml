@@ -1,0 +1,16 @@
+functions:
+  sonar_estimator:
+    _type: sonar_estimator
+
+llms:
+  nim_llm:
+    _type: nim
+    model_name: meta/llama-3.1-70b-instruct
+    api_key: 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
+    temperature: 0.0
+
+workflow:
+  _type: react_agent
+  tool_names: [sonar_estimator]
+  llm_name: nim_llm
+  verbose: true
