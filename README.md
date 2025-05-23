@@ -70,5 +70,5 @@ cd external/aiqtoolkit-opensource-ui/
 npm run dev
 ```
 
-5. Interact
+5. Interact<br>
 Open your browser and ask "現在有幾隻魚?" or "How many fish are there now?" in the chat!
