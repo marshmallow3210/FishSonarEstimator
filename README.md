@@ -23,8 +23,8 @@ This project uses the publicly available:
 ```
 
 ## Prerequisites  
-- Python 3.8+  
-- virtualenv or conda  
+- Python 3.11+  
+- virtualenv (ubuntu)  
 - Git & Git LFS  
 - NVIDIA Agent Toolkit CLI (`pip install aiq-toolkit`)
 
