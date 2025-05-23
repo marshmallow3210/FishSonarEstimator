@@ -1,7 +1,7 @@
 # FishSonarEstimator
 
 ## Overview  
-FishSonarEstimator is an AI assistant built with NVIDIA Agent Toolkit that estimates fish counts from sonar images. It integrates a Flask‐served TensorFlow model and a reactive LLM workflow to return annotated images and numerical counts via a conversational interface.
+FishSonarEstimator is a sonar image–based fish-count estimation system powered by the NVIDIA Agent Toolkit. It automatically processes incoming acoustic images through an AI agent workflow and returns accurate, real-time fish population counts.
 
 ## Dataset  
 This project uses the publicly available:  
